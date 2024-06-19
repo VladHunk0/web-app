@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Control</title>
+    <script src="{{ url_for('static', filename='js/socket.io.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/notifications.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/language.js') }}"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        #data-container {
+            display: grid;
+            place-items: center;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" id="homeButton">Home</a></li>
+                <li><a href="#" id="tableButton">Table</a></li>
+                <li><a href="#" id="adminButton">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <button id="themeButton" class="theme-button">Toggle Theme</button>
+    <button id="languageButton" class="language-button">Language</button>
+
+    <div id="data-container" class="content-section">
+        <h1>System Control</h1>
+        <div id="humidity">Humidity: -- %</div>
+        <div id="temperature">Temperature: -- *C</div>
+        <div class="button-container">
+            <button id="startButton" class="styled-button">Start</button>
+            <button id="stopButton" class="styled-button">Stop</button>
+        </div>
+    </div>
+
+    <div id="chart-section" class="content-section">
+        <h2>Data Chart</h2>
+        <canvas id="dataChart" width="800" height="400"></canvas>
+    </div>
+
+    <div id="table-section" class="content-section">
+        <h2>Recent Data</h2>
+        <div class="button-container">
+            <button id="showTableButton" class="styled-button">Show Table</button>
+            <button id="clearTableButton" class="styled-button">Clear Table</button>
+            <button id="closeTableButton" class="styled-button">Close Table</button>
+        </div>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Humidity (%)</th>
+                    <th>Temperature (*C)</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="adminPanel" class="content-section">
+        <h2>Admin Panel</h2>
+        <form id="thresholdForm">
+            <label for="humidityLow">Humidity Low Threshold (%):</label>
+            <input type="number" id="humidityLow" name="humidityLow" min="0" max="100" required><br><br>
+
+            <label for="humidityHigh">Humidity High Threshold (%):</label>
+            <input type="number" id="humidityHigh" name="humidityHigh" min="0" max="100" required><br><br>
+
+            <label for="temperatureLow">Temperature Low Threshold (°C):</label>
+            <input type="number" id="temperatureLow" name="temperatureLow" required><br><br>
+
+            <label for="temperatureHigh">Temperature High Threshold (°C):</label>
+            <input type="number" id="temperatureHigh" name="temperatureHigh" required><br><br>
+
+            <button type="submit" class="styled-button">Save Thresholds</button>
+        </form>
+    </div>
+</body>
+</html>

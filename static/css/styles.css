@@ -1,0 +1,290 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Змінено шрифт на Roboto */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    position: relative;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.notification {
+    background-color: #f44336;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.fadeOut {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+#data-container, #chart-section, #table-section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.styled-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.styled-button:hover {
+    background-color: #0056b3;
+}
+
+#dataChart {
+    max-width: 100%; /* Графік буде адаптивним */
+    height: auto; /* Автоматична висота для адаптивного відображення */
+    display: block;
+    margin: 0 auto;
+}
+
+#dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#dataTable th, #dataTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: right;
+}
+
+#dataTable th {
+    background-color: #007BFF;
+    color: white;
+    text-align: left;
+}
+
+#dataTable td {
+    text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    #data-container, #chart-section, #table-section {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .styled-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Додано стилі для адміністративної панелі */
+#adminPanel {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Початково прихована */
+}
+
+#adminPanel h2 {
+    text-align: center;
+}
+
+#adminPanel form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#adminPanel form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#adminPanel form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#adminPanel form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#adminPanel form button:hover {
+    background-color: #0056b3;
+}
+
+.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-theme header {
+    background-color: #111; /* Приклад темного фону для header */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Тінь для темного header */
+}
+
+.dark-theme #data-container,
+.dark-theme #chart-section,
+.dark-theme #table-section,
+.dark-theme #adminPanel {
+    background-color: #444; /* Фон для секцій в темній темі */
+    color: #fff; /* Колір тексту для секцій в темній темі */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Тінь для секцій в темній темі */
+}
+
+.dark-theme #dataTable th {
+    background-color: #555; /* Колір фону заголовків таблиці в темній темі */
+}
+
+.dark-theme #dataTable td {
+    background-color: #666; /* Колір фону комірок таблиці в темній темі */
+}
+
+.theme-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    color: #333; /* Колір тексту для світлої теми */
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-button.dark-theme {
+    color: #fff; /* Колір тексту для темної теми */
+}
+
+.theme-button:hover {
+    color: #fff;
+    background-color: #007BFF;
+}
+
+#languageButton {
+    position: fixed;
+    bottom: 20px;
+    right: 70px; /* Збільшено відступ для позицію праворуч від кнопки Toggle Theme */
+    background-color: transparent;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+#languageButton.dark-theme {
+    color: #fff;
+}
+
+#languageButton:hover {
+    color: #fff;
+    background-color: #007BFF;
+}
